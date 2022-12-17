@@ -63,7 +63,7 @@ namespace Stop_Poking_Me
 				return;
 
 			count++;
-			if (pawn.IsFreeColonist && count == 5)
+			if (pawn.IsFreeColonist && pawn.gender == Gender.Male && count == 5)
 			{
 				count = 0;
 				TDSoundDefOf.TD_WhyPoke.PlayOneShotOnCamera();
