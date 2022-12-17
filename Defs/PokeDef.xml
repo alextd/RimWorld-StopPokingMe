@@ -12,7 +12,7 @@
             <clipPath>TD/annoy3</clipPath>
           </li>
         </grains>      
-        <volumeRange>30~30</volumeRange>
+        <volumeRange>60~60</volumeRange>
       </li>
     </subSounds>
   </SoundDef>
