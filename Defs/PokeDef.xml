@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><Defs>
+
+  <SoundDef>
+    <defName>TD_WhyPoke</defName>    
+    <maxVoices>1</maxVoices>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>      
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>TD/annoy3</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>
