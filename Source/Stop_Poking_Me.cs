@@ -52,21 +52,30 @@ namespace Stop_Poking_Me
 			Thing singleThing = __instance.SingleSelectedThing;
 
 			// Start the count on this new thing
-			if(singleThing != lastSingleSelectedThing)
+			if (singleThing != lastSingleSelectedThing)
 			{
 				lastSingleSelectedThing = singleThing;
 				count = 1;
 				return;
 			}
 
-			// Count on same thing
-			if (++count == 5)
-			{
-				// At 5, sound off
-				count = 0;
+			if (singleThing is not Pawn pawn)
+				return;
 
+			count++;
+			if (pawn.IsFreeColonist && count == 5)
+			{
+				count = 0;
 				TDSoundDefOf.TD_WhyPoke.PlayOneShotOnCamera();
 			}
+			else if (pawn.IsCritter() && count == 10)
+			{
+				count = 0;
+				GenExplosion.DoExplosion(pawn.PositionHeld, pawn.MapHeld, 5, DamageDefOf.Bomb, pawn);
+			}
 		}
+
+		public static bool IsCritter(this Pawn pawn) =>
+			pawn.Faction == null && pawn.RaceProps.Animal;
 	}
 }
