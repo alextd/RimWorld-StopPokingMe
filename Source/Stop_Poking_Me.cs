@@ -63,12 +63,13 @@ namespace Stop_Poking_Me
 				return;
 
 			count++;
-			if (pawn.IsFreeColonist && pawn.gender == Gender.Male && count == 5)
+			
+			if (Mod.settings.doVoice && pawn.IsFreeColonist && pawn.gender == Gender.Male && count == 5)
 			{
 				count = 0;
 				TDSoundDefOf.TD_WhyPoke.PlayOneShotOnCamera();
 			}
-			else if (pawn.IsCritter() && count == 10)
+			else if (Mod.settings.doCritter && pawn.IsCritter() && count == 10)
 			{
 				count = 0;
 				GenExplosion.DoExplosion(pawn.PositionHeld, pawn.MapHeld, 5, DamageDefOf.Bomb, pawn);
